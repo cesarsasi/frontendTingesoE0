@@ -13,7 +13,7 @@
         </v-btn>
 
         <v-btn class="mx-2" fab dark color="teal">
-          <router-link to="/about">
+          <router-link to="/Postulantes">
             <v-icon dark>mdi-format-list-bulleted-square</v-icon>
           </router-link>
         </v-btn>
@@ -27,14 +27,19 @@
   </v-app>
 </template>
 
+
+
 <script>
-import HelloWorld from './components/HelloWorld';
+  import AgregarPostulante from './components/AgregarPostulante';
+  import ListarPostulante from './components/ListarPostulantes';
+
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    AgregarPostulante,
+    ListarPostulante,
   },
 
   data: () => ({

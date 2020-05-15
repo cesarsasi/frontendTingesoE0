@@ -13,7 +13,6 @@
                 ref="form"
                 v-model="valid"
                 lazy-validation
-
         >
           <v-text-field
                   v-model="name"
@@ -69,9 +68,12 @@
   </v-container>
 </template>
 
+
+
+
 <script>
   export default {
-    name: 'HelloWorld',
+    name: 'AgregarPostulante',
 
     data: () => ({
       test: true,
