@@ -38,7 +38,8 @@
 
           <v-select
                   v-model="select"
-                  :items="items"
+                  :items="carreras"
+                  item-text="id"
                   :rules="[v => !!v || 'Campo requerido']"
                   label="Carrera"
                   required
@@ -72,6 +73,8 @@
 
 
 <script>
+  import axios from "axios";
+
   export default {
     name: 'AgregarPostulante',
 
@@ -82,7 +85,7 @@
       name: '',
       nameRules: [
         v => !!v || 'Campo requerido',
-        v => (v && v.length <= 100) || 'Name must be less than 100 characters',
+        v => (v && v.length <= 100) || 'Excede el maximo de caracteres',
       ],
       rut: '',
       rutRules: [
@@ -95,13 +98,12 @@
         v => (v && v.length <= 10) || 'Formato incorrecto',
       ],
       select: null,
-      items: [
-        'Carrera 1',
-        'Carrera 2',
-        'Carrera 3',
-        'Informática',
-      ],
+      carreras: null,
     }),
+
+    mounted() {
+      this.getCarreras();
+    },
 
     methods: {
       validate () {
@@ -110,6 +112,15 @@
       reset () {
         this.$refs.form.reset()
       },
+
+      getCarreras() {
+        axios.get('http://localhost:9898/carrera') //Reemplazar url
+                .then( response => {
+                  this.carreras = response.data
+                })
+
+                .catch( e=> console.log(e))
+      }
     },
   }
 </script>

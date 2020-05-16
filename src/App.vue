@@ -30,8 +30,9 @@
 
 
 <script>
-  import AgregarPostulante from './components/AgregarPostulante';
-  import ListarPostulante from './components/ListarPostulantes';
+import AgregarPostulante from './components/AgregarPostulante';
+import ListarPostulante from './components/ListarPostulantes';
+import axios from 'axios'
 
 
 export default {
@@ -45,5 +46,15 @@ export default {
   data: () => ({
     //
   }),
+
+  mounted(){
+    console.log("mensajito para prueba")
+    this.getTodos();
+  },
+  methods:{
+    getTodos(){
+      console.log("Codigo respuesta")
+    }
+  }
 };
 </script>
