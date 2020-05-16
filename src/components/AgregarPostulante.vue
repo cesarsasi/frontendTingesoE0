@@ -10,6 +10,7 @@
     <v-layout justify-center>
       <v-flex class="mt-3" xs6>
         <v-form
+                method="POST"
                 ref="form"
                 v-model="valid"
                 lazy-validation
@@ -99,6 +100,7 @@
       ],
       select: null,
       carreras: null,
+
     }),
 
     mounted() {
@@ -124,21 +126,18 @@
 
       postPostulante(){
         axios.post('http://localhost:9898/postulantes', {
-          id: 55,
           nombre: this.name,
           rut: this.rut,
           f_nacimiento: this.birth,
-          idCarrera: this.select, 
+          nomCarrera: this.select,
 
         })
-        .then(response => {
-          console.log(response);
+        .then(function (response) {
+         console.log(response);
         })
-        .catch(error => {
-          console.log(error);
-        
+        .catch(function (error) {
+         console.log(error);
         });
-
       }
     },
   }
