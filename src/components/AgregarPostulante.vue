@@ -58,7 +58,7 @@
                   :disabled="!valid"
                   color="success"
                   class="mr-4"
-                  @click="postPostulante"
+                  @click="enviar"
           >
             Enviar
           </v-btn>
@@ -114,30 +114,29 @@
       reset () {
         this.$refs.form.reset()
       },
-
       getCarreras() {
         axios.get('http://localhost:9898/carrera') //Reemplazar url
-                .then( response => {
-                  this.carreras = response.data
-                })
-
-                .catch( e=> console.log(e))
+          .then( response => {
+            this.carreras = response.data
+              })
+          .catch( e=> console.log(e))
       },
-
       postPostulante(){
         axios.post('http://localhost:9898/postulantes', {
           nombre: this.name,
           rut: this.rut,
           f_nacimiento: this.birth,
           nomCarrera: this.select,
-
-        })
-        .then(function (response) {
-         console.log(response);
-        })
-        .catch(function (error) {
-         console.log(error);
+        }).then(function (response) {
+          console.log(response);
+        }).catch(function (error) {
+          console.log(error);
         });
+      },
+      enviar(){
+        this.postPostulante()
+        this.reset()
+
       }
     },
   }
