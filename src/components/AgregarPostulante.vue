@@ -124,6 +124,7 @@
 
       postPostulante(){
         axios.post('http://localhost:9898/postulantes', {
+          id: 55,
           nombre: this.name,
           rut: this.rut,
           f_nacimiento: this.birth,
