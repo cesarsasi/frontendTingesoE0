@@ -39,7 +39,7 @@
           <v-select
                   v-model="select"
                   :items="carreras"
-                  item-text="id"
+                  item-text="nombre"
                   :rules="[v => !!v || 'Campo requerido']"
                   label="Carrera"
                   required
@@ -57,7 +57,7 @@
                   :disabled="!valid"
                   color="success"
                   class="mr-4"
-                  @click="validate"
+                  @click="postPostulante"
           >
             Enviar
           </v-btn>
@@ -120,6 +120,24 @@
                 })
 
                 .catch( e=> console.log(e))
+      },
+
+      postPostulante(){
+        axios.post('http://localhost:9898/postulantes', {
+          nombre: this.name,
+          rut: this.rut,
+          f_nacimiento: this.birth,
+          idCarrera: this.select, 
+
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        
+        });
+
       }
     },
   }
