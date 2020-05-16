@@ -9,12 +9,17 @@
     <v-layout justify-center>
       <table>
         <tbody>
+        <tr>
+          <td><h2>Nombre</h2></td>
+          <td><h2>Rut</h2></td>
+          <td><h2>Nacimiento</h2></td>
+          <td><h2>Carrera</h2></td>
+        </tr>
           <tr v-for="postulante in postulantes">
-            <td>{{ postulante.id }}</td>
-            <td>{{ postulante.nombre }}</td>
-            <td>{{ postulante.rut }}</td>
-            <td>{{ postulante.f_nacimiento }}</td>
-            <td>{{ postulante.idCarrera }}</td>
+            <td><v-flex class="mr-5 mt-3">{{ postulante.nombre }}</v-flex></td>
+            <td><v-flex class="mr-5 mt-3">{{ postulante.rut }}</v-flex></td>
+            <td><v-flex class="mr-5 mt-3">{{ postulante.f_nacimiento }}</v-flex></td>
+            <td><v-flex class="mr-5 mt-3">{{ postulante.nomCarrera }}</v-flex></td>
           </tr>
         </tbody>
       </table>
