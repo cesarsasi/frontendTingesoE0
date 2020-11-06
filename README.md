@@ -1,5 +1,7 @@
 # itcerofront
 
+Frontend para aplicativo web de para avisos comunales, alojado posteriormente en un Droplet con dockers y ligado con Integración continua en Gitlab, realizado para el primer entregable en la asignatura de Técnicas de ingeniera de software.
+
 ## Project setup
 ```
 npm install
